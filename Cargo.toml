@@ -1,0 +1,58 @@
+[package]
+name = "test-rs"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+path = "src/main.rs"
+name = "server"
+
+[dependencies]
+axum-extra = { version = "0.9.3", features = ["typed-header"] }
+headers = "0.4.0"
+axum = "0.7.5"
+tokio = { version = "1.39.2", features = ["full"] }
+tower-http = { version = "0.5.2", features = ["trace", "cors"] }
+tracing = { version = "0.1.40", features = ["log"] }
+tracing-subscriber = { version = "0.3.18", features = ["env-filter", "registry"] }
+tracing-bunyan-formatter = "0.3.9"
+tracing-log = "0.2.0"
+config = "0.14.0"
+chrono = "0.4.38"
+uuid = { version = "1.10.0", features = ["v7", "v4", "serde"] }
+secrecy = { version = "0.8.0", features = ["serde"] }
+serde = { version = "1.0.205", features = ["derive"] }
+argon2 = { version = "0.5.3", features = ["std"] }
+jsonwebtoken = "9.3.0"
+password-hash = "0.5.0"
+rand = "0.8.5"
+reqwest = { version = "0.12.5", features = ["json", "rustls-tls"] }
+thiserror = "1.0.63"
+anyhow = "1.0.86"
+validator = { version = "0.18.1", features = ["derive"] }
+async-trait = "0.1.81"
+cookie = "0.18.1"
+unicode-segmentation = "1.11.0"
+
+[dev-dependencies]
+fake = "2.9.2"
+wiremock = "0.6.1"
+mockall = "0.13.0"
+claims = "0.7.1"
+serde_json = "1.0.122"
+
+[dependencies.sqlx]
+version = "0.8.0"
+default-features = false
+features = [
+    "runtime-tokio",
+    "tls-rustls",
+    "migrate",
+    "postgres",
+    "chrono",
+    "macros",
+    "uuid"
+]

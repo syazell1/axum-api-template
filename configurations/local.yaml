@@ -1,0 +1,16 @@
+app:
+  host: 127.0.0.1
+  port : 8000
+  client_url : http://localhost:3000
+database:
+  username : admin
+  password : root
+  host : localhost
+  port : 5432
+  database_name : test_db
+  require_ssl : false
+jwt:
+  audience : test
+  issuer : test
+  access_token_secret: test
+  refresh_token_secret: test
